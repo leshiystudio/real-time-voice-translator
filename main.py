@@ -100,7 +100,7 @@ def update_translation():
             audio = r.listen(source)
             
             try:
-                speech_text = r.recognize_google(audio)
+                speech_text = r.recognize_google(audio, language=input_lang.get())
                 # print(speech_text)
                 speech_text_transliteration = transliterate_text(speech_text, lang_code=input_lang.get()) if input_lang.get() not in ('auto', 'en') else speech_text
                 input_text.insert(tk.END, f"{speech_text_transliteration}\n")
